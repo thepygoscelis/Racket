@@ -15,7 +15,7 @@
   (if (equal? 0 b)
       a
       (add (s a) (Pr b))))
-;Subtract strips as many successors off a as b has
+;Subtract strips as many successors off a as long as b has successors
 ;Since domain is limited to N no negatives will
 ;be returned.
 (define (subtract a b)
