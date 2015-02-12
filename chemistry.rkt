@@ -1,3 +1,6 @@
+;Author: Charlie R. Hicks
+;Purpose: To stop boredom from prolonged period of not programming
+;Secondary Purpose: Create a utility to augment Chemistry knowledge.
 #lang racket
 ; Symbol -> Name -> Atomic Number -> Atomic Weight
 (define elements
@@ -592,3 +595,7 @@
   (if (equal? (car (cdr (car list))) name)
       (car (cdr (cdr (car list))))
       (fetch-by-name (cdr list) name)))
+;Give two isotopes masses and their weighted-average mass
+;it will give you their natural abundances
+(define (determine-abundances mass1 mass2 wam)
+  `( ,@(list (list mass1 (- 1 (/ (- wam mass1) (- mass2 mass1)))))  ,@ (list (list mass2 (/ (- wam mass1) (- mass2 mass1))))))
