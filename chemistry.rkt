@@ -599,3 +599,11 @@
 ;it will give you their natural abundances
 (define (determine-abundances mass1 mass2 wam)
   `( ,@(list (list mass1 (- 1 (/ (- wam mass1) (- mass2 mass1)))))  ,@ (list (list mass2 (/ (- wam mass1) (- mass2 mass1))))))
+;Given atomic number
+;returns boolean based on weather the element is unstable meaning having no stable isotopes
+(define (unstable n)
+  (if (> n 83)
+      #t
+      (if (or (equal? 43 n) (equal? 61 n))
+          #t
+          #f)))
